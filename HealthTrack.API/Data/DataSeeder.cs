@@ -10,8 +10,20 @@ public static class DataSeeder
         if (context.Patients.Any()) return;
 
         var departments = new[] { "Cardiology", "Neurology", "Pediatrics", "Orthopedics", "Oncology" };
-        var doctors = new[] { "Dr. Smith", "Dr. Johnson", "Dr. Williams", "Dr. Brown", "Dr. Davis" };
-
+        var doctors = new[] {
+                                "Dr. Meredith Grey",
+                                "Dr. Cristina Yang",
+                                "Dr. Alex Karev",
+                                "Dr. Miranda Bailey",
+                                "Dr. Derek Shepherd",
+                                "Dr. Preston Burke",
+                                "Dr. Izzie Stevens",
+                                "Dr. George O'Malley",
+                                "Dr. Callie Torres",
+                                "Dr. Arizona Robbins",
+                                "Dr. Owen Hunt",
+                                "Dr. Amelia Shepherd"
+                    };
         // Seed Patients
         var patientFaker = new Faker<Patient>()
             .RuleFor(p => p.FullName, f => f.Name.FullName())
