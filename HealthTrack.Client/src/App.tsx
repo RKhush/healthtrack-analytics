@@ -4,7 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Patients from './pages/Patients';
-
+import CsvUpload from './pages/CsvUpload';
 // Protected route — if not logged in, redirect to login
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, isLoading } = useAuth();
@@ -44,8 +44,16 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route
+       path="/upload"
+       element={
+          <ProtectedRoute>
+            <CsvUpload />
+          </ProtectedRoute>
+        }
+      />
 
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+      <Route path="*" element={<Navigate to="/dashboard" />} />
 
     </Routes>
     
