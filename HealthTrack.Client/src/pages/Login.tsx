@@ -27,52 +27,49 @@ const Login = () => {
   };
 
   return (
-    <div style={{minHeight:'100vh', background:'linear-gradient(135deg, #1B3A6B, #0E7490)', display:'flex', alignItems:'center', justifyContent:'center', padding:'16px'}}>
-      <div style={{background:'white', borderRadius:'16px', padding:'32px', width:'100%', maxWidth:'400px', boxShadow:'0 25px 50px rgba(0,0,0,0.25)'}}>
-        
-        <div style={{textAlign:'center', marginBottom:'24px'}}>
-          <div style={{width:'48px', height:'48px', background:'#0E7490', borderRadius:'12px', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 12px'}}>
-            <span style={{color:'white', fontWeight:'bold'}}>HT</span>
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 to-teal-800 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6">
+        <div className="text-center mb-6">
+          <div className="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <span className="text-white text-lg font-bold">HT</span>
           </div>
-          <h1 style={{fontSize:'20px', fontWeight:'bold', color:'#1a1a1a'}}>HealthTrack</h1>
-          <p style={{color:'#666', fontSize:'14px'}}>Analytics Dashboard</p>
+          <h1 className="text-xl font-bold text-gray-900">HealthTrack</h1>
+          <p className="text-gray-500 text-sm mt-1">Analytics Dashboard</p>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div style={{marginBottom:'16px'}}>
-            <label style={{display:'block', fontSize:'14px', fontWeight:'500', marginBottom:'4px'}}>Email</label>
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
               placeholder="admin@healthtrack.com"
               required
-              style={{width:'100%', padding:'10px 12px', border:'1px solid #ddd', borderRadius:'8px', fontSize:'14px', boxSizing:'border-box'}}
             />
           </div>
-
-          <div style={{marginBottom:'16px'}}>
-            <label style={{display:'block', fontSize:'14px', fontWeight:'500', marginBottom:'4px'}}>Password</label>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm"
               placeholder="••••••••"
               required
-              style={{width:'100%', padding:'10px 12px', border:'1px solid #ddd', borderRadius:'8px', fontSize:'14px', boxSizing:'border-box'}}
             />
           </div>
-
           <button
             type="submit"
             disabled={isLoading}
-            style={{width:'100%', padding:'12px', background:'#0E7490', color:'white', border:'none', borderRadius:'8px', fontSize:'14px', fontWeight:'600', cursor:'pointer'}}
+            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 disabled:opacity-50"
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 
-        <div style={{marginTop:'16px', padding:'12px', background:'#f5f5f5', borderRadius:'8px', fontSize:'12px', color:'#666', textAlign:'center'}}>
+        <div className="mt-4 p-3 bg-gray-50 rounded-lg text-xs text-gray-500 text-center">
           Demo: admin@healthtrack.com / Admin@123
         </div>
       </div>
