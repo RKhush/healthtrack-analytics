@@ -13,6 +13,8 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.18.1",
     "lucide-react": "^1.25.0",
+    "powerbi-client": "^2.24.1",
+    "powerbi-client-react": "^2.0.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-hot-toast": "^2.6.0",
