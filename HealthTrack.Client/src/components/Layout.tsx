@@ -1,4 +1,4 @@
-import type  { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { 
@@ -7,7 +7,8 @@ import {
   Calendar, 
   Upload, 
   BarChart3, 
-  LogOut 
+  LogOut,
+  ShieldCheck
 } from 'lucide-react';
 
 const navItems = [
@@ -19,7 +20,7 @@ const navItems = [
 ];
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const { user, logout } = useAuth();
+  const { user, logout, isAdmin } = useAuth();
   const location = useLocation();
 
   return (
@@ -61,6 +62,21 @@ const Layout = ({ children }: { children: ReactNode }) => {
               </Link>
             );
           })}
+
+          {/* Admin Panel — only visible to Admin */}
+          {isAdmin() && (
+            <Link
+              to="/admin"
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                location.pathname === '/admin'
+                  ? 'bg-teal-600 text-white'
+                  : 'text-blue-200 hover:bg-blue-800 hover:text-white'
+              }`}
+            >
+              <ShieldCheck size={18} />
+              <span className="text-sm font-medium">Admin Panel</span>
+            </Link>
+          )}
         </nav>
 
         {/* User info + logout */}

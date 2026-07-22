@@ -7,6 +7,8 @@ import Patients from './pages/Patients';
 import CsvUpload from './pages/CsvUpload';
 import Appointments from './pages/Appointments';
 import Reports from './pages/Reports';
+import Register from './pages/Register';
+import AdminPanel from './pages/AdminPanel';
 // Protected route — if not logged in, redirect to login
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, isLoading } = useAuth();
@@ -29,6 +31,7 @@ const AppRoutes = () => {
         path="/login" 
         element={user ? <Navigate to="/dashboard" /> : <Login />} 
       />
+      <Route path="/register" element={<Register />} />
       <Route
         path="/dashboard"
         element={
@@ -68,6 +71,14 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <Reports />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <AdminPanel />
           </ProtectedRoute>
         }
       />

@@ -72,6 +72,12 @@ const Login = () => {
         <div className="mt-4 p-3 bg-gray-50 rounded-lg text-xs text-gray-500 text-center">
           Demo: admin@healthtrack.com / Admin@123
         </div>
+        <div style={{marginTop:'12px', textAlign:'center'}}>
+            <span style={{fontSize:'13px', color:'#666'}}>Don't have an account? </span>
+            <a href="/register" style={{fontSize:'13px', color:'#0E7490', fontWeight:'600', textDecoration:'none'}}>
+                Register
+            </a>
+       </div>
       </div>
     </div>
   );
