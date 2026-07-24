@@ -77,13 +77,20 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 
 
+
+
+
 // CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact", policy =>
-        policy.WithOrigins("http://localhost:5173")
-              .AllowAnyHeader()
-              .AllowAnyMethod());
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "https://healthtrack-analytics.vercel.app",
+            "https://healthtrack-analytics-git-main-khusie.vercel.app"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod());
 });
 
 var app = builder.Build();
